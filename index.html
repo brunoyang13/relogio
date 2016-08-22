@@ -1,155 +1,12 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
-<style>
-$dial-x = 65px
-$dial-y = 50px
-$dial-bg = #462c2e
-$dial-color = #fff
-$dial-font-x = 55px
+    <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+    <link rel="StyleSheet" type="text/css" href="relogio.css">
+    <title> ::Relogio Digital:: </title>
 
-body, html
-  height: 100%
-  width: 100%
-  margin: 0
-  padding: 0
-  background: #f65041
-  font-family: Lato, arial
- 
-*
-  box-sizing: border-box
-  
-.transitions-off *
-  transition: none !important
-
-time
-  position: absolute
-  top: 150px
-  left: 0
-  right: 0
-  margin: 0
-  display: block
-  text-align: center
- 
-
-.dial-container
-  display: inline-block
-  position: relative
-  text-align: center
-  margin: auto
-  perspective: 1000
-  height: $dial-y * 2
-  width: $dial-x
-  cursor: default
-  
-  &.dial-container--hh
-    width: $dial-font-x + $dial-x
-  
-span
-  width: $dial-x
-  height: $dial-y
-  
-.dial
-  top: 0
-  height: ($dial-y / 2)
-  /* overflow: hidden */ 
-  transition: all 0.6s
-  transform-style: preserve-3d
-  position: absolute
-  z-index: 3
-  transform-origin: 50px $dial-y
- 
-
-span
-  display: block
-  backface-visibility: hidden
-  position: absolute
-  top: 0
-  left: 0
-  height: $dial-y
-  overflow: hidden
-  background: $dial-bg
-  color: $dial-color
-  text-align: center
-  line-height: ($dial-y * 2)
-  font-size: 80px
-  font-weight: bold
-  border-radius: 10px 10px 0 0
-  
-  .dial-container--ss &,
-  .dial-container--mm &
-    text-align: right
-    padding-right: 2px
-    border-radius: 10px 0 0 0
-    
-  .dial-container--hh &
-    text-align: center
-    min-width: ($dial-x + $dial-font-x)
-  
-  .dial-container--s &,
-  .dial-container--m &
-    text-align: left
-    padding-left: 2px
-    border-radius: 0 10px 0 0
-
-span:first-child
-  z-index: 2
-  transform: rotateY(0deg)
-  background-color: darken($dial-bg, 15%)
-  color: darken($dial-color, 20%)
-  
-  &:after
-    display: block
-    width: 100%
-    height: 1px
-    background: rgba(0,0,0,0.2)
-    content: ' '
-    position: absolute
-    bottom: 0
-    left: 0
-
-span:last-child
-  transform: rotateY(180deg)
-  border-radius:  0 0 10px 10px
-  line-height: 0
-  transform rotateX(180deg)
-  
-  .dial-container--ss &,
-  .dial-container--mm &
-    border-radius: 0 0 0 10px
-  
-  .dial-container--s &,
-  .dial-container--m &
-    border-radius: 0 0 10px 0
-  
-.dial--static, .dial--next
-  transform: rotateX(0deg) !important
-
-.dial--flipped
-  z-index: 2
-  transform: rotateX(180deg) !important
-
-.dial--next
-  z-index: 2
-
-.dial--later
-  z-index: 1
- 
-</style>
-</head>
-<body>
-<time>
-<div class="clock">
-<div class="dial-container dial-container--hh js-clock" data-cur="9" data-start="0" data-end="12" data-dur="hh"></div> &nbsp;
-<div class="dial-container dial-container--mm js-clock" data-cur="2" data-start="0" data-end="5" data-dur="mm"></div><div class="dial-container dial-container--m js-clock" data-cur="3" data-start="0" data-end="9" data-dur="m"></div>  
-   &nbsp;
-<div class="dial-container dial-container--ss js-clock" data-cur="4" data-start="0" data-end="5" data-dur="ss"></div><div class="dial-container dial-container--s js-clock" data-cur="8" data-start="0" data-end="9" data-dur="s"></div>
-  </div>
-</time>
-</body>
-<script>
-nthDigit = (int, nth) ->
+    <script type="text/javascript">
+      nthDigit = (int, nth) ->
   parseInt(int.toString().substr(nth,1))
 
 setAttributes = ->
@@ -272,7 +129,24 @@ $(document).ready ->
   startClock()
   
   
-setInterval( watch, 1000 );
-</script>
+
+    </script>
+</head>
+
+<body>
+  
+<time>
+<div class="clock">
+<div class="dial-container dial-container--hh js-clock" data-cur="9" data-start="0" data-end="12" data-dur="hh"></div> &nbsp;
+<div class="dial-container dial-container--mm js-clock" data-cur="2" data-start="0" data-end="5" data-dur="mm"></div><div class="dial-container dial-container--m js-clock" data-cur="3" data-start="0" data-end="9" data-dur="m"></div>  
+   &nbsp;
+<div class="dial-container dial-container--ss js-clock" data-cur="4" data-start="0" data-end="5" data-dur="ss"></div><div class="dial-container dial-container--s js-clock" data-cur="8" data-start="0" data-end="9" data-dur="s"></div>
+  </div>
+</time>
+
+
 </body>
+
+
+
 </html>
